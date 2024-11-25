@@ -36,7 +36,7 @@ export default function NewChallenge({ onDone }) {
       !challenge.image
     ) {
       animate(
-        "input, textarea",
+        "input, textarea", //you can add class instead
         { x: [-10, 0, 10, 0] },
         { type: "spring", duration: 0.2, delay: stagger(0.05) }
       );
