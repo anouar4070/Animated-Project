@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-import cityImg from "../assets/city.jpg";
-import heroImg from "../assets/hero.png";
+import cityImg from '../assets/city.jpg';
+import heroImg from '../assets/hero.png';
 
 export default function WelcomePage() {
   const { scrollY } = useScroll();
@@ -31,15 +31,13 @@ export default function WelcomePage() {
           </Link>
         </motion.div>
         <motion.img
-          // animate={{ opacity: 1 }}
           style={{ opacity: opacityCity, y: yCity }}
           src={cityImg}
           alt="A city skyline touched by sunlight"
           id="city-image"
         />
         <motion.img
-          style={{ opacity: opacityHero, y: yHero }}
-
+          style={{ y: yHero, opacity: opacityHero }}
           src={heroImg}
           alt="A superhero wearing a cape"
           id="hero-image"

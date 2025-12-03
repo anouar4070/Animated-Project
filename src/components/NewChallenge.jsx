@@ -1,9 +1,9 @@
-import { useContext, useRef, useState } from "react";
-import { motion, useAnimate, stagger } from "framer-motion";
+import { useContext, useRef, useState } from 'react';
+import { motion, useAnimate, stagger } from 'framer-motion';
 
-import { ChallengesContext } from "../store/challenges-context.jsx";
-import Modal from "./Modal.jsx";
-import images from "../assets/images.js";
+import { ChallengesContext } from '../store/challenges-context.jsx';
+import Modal from './Modal.jsx';
+import images from '../assets/images.js';
 
 export default function NewChallenge({ onDone }) {
   const title = useRef();
@@ -11,8 +11,7 @@ export default function NewChallenge({ onDone }) {
   const deadline = useRef();
 
   const [scope, animate] = useAnimate();
-  //scope is a ref which you can add to elements
-  //animate is a function used to trigger a certain animation
+
   const [selectedImage, setSelectedImage] = useState(null);
   const { addChallenge } = useContext(ChallengesContext);
 
@@ -36,9 +35,9 @@ export default function NewChallenge({ onDone }) {
       !challenge.image
     ) {
       animate(
-        "input, textarea", //you can add class instead
+        'input, textarea',
         { x: [-10, 0, 10, 0] },
-        { type: "spring", duration: 0.2, delay: stagger(0.05) }
+        { type: 'spring', duration: 0.2, delay: stagger(0.05) }
       );
       return;
     }
@@ -75,14 +74,13 @@ export default function NewChallenge({ onDone }) {
             <motion.li
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
-                // visible: { opacity: 1, scale: 1 },
                 visible: { opacity: 1, scale: [0.8, 1.3, 1] },
               }}
               exit={{ opacity: 1, scale: 1 }}
-              transition={{ type: "spring" }}
+              transition={{ type: 'spring' }}
               key={image.alt}
               onClick={() => handleSelectImage(image)}
-              className={selectedImage === image ? "selected" : undefined}
+              className={selectedImage === image ? 'selected' : undefined}
             >
               <img {...image} />
             </motion.li>
